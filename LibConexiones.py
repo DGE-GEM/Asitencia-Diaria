@@ -25,8 +25,8 @@ try:
   dbejemplo = miConector(
     host="127.0.0.1",
     user="root",
-    password="Margarita90",
-    database="dbejemplo"
+    password="1234",
+    database="asistencia diaria"
   )
 except :
   print(f"{Fore.RED}{Style.BRIGHT}...ERROR en LibConexiones.py --> en el conector dbejemplo reviselo...{Style.RESET_ALL}")

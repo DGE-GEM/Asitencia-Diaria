@@ -1,15 +1,21 @@
 import mysql.connector
+import pruebaScripts
+from colorama import Fore
+from colorama import Style
 
-mydb = mysql.connector.connect(
-  host="127.0.0.1",
-  user="root",
-  password="1234",
-  database = "asistencia diaria"
-)
-mycursor = mydb.cursor()
 
-mycursor.execute("SHOW TABLES")
+mydb = mysql.connector.connect
 
-for x in mycursor:
-  print(x)
 
+  print("...iniciando conector a DB dbejemplo...")
+  
+  dbejemplo = mydb(
+    host="127.0.0.1",
+    user="root",
+    password="1234",
+    database="asistencia diaria"
+  )
+   
+
+
+ 
