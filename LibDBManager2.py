@@ -1,7 +1,7 @@
 # esta libreria utiliza las conexiones a la base de datos y además
 # gestiona los scripts para ejecutarlos, las bases son invocadas desde el proyecto principal
 # pip install colorama
-import mysql.connector
+
 from colorama import Fore
 from colorama import Style
 

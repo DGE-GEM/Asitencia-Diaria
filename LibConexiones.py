@@ -9,8 +9,8 @@ try:
   print("...iniciando conector a DB GEM...")
   gem = miConector(
     host="gemdbrep1.mendoza.gob.ar",
-    user="jmastrandrea",
-    password="C*1cuZRvsr",
+    user="",
+    password="",
     database="gem"
 )
 except:
