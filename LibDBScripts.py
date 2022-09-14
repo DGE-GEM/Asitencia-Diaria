@@ -1,3 +1,6 @@
+from .LibDBManager2 import CrearTabla
+
+
 seleccionarTablaNivel = """SELECT
                           *
                           FROM
@@ -165,3 +168,12 @@ crearTabalInstitucional = """CREATE TABLE TABLA_INSTITUCIONAL
                                 Femeninos INT(10),
                                 NSNC INT(10) 
                                 )"""
+
+var = 'dbnombre'
+CrearTablaNueva = """CREATE TABLE """ + var + """
+                    (
+                    id INT AUTO_INCREMENT PRIMARY KEY
+                    
+                    )"""
+
+print(CrearTablaNueva)

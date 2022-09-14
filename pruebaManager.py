@@ -13,7 +13,7 @@ def SetCursor(db):
         cursor = db.cursor()
     except :
         # si hay error en el cursor
-        print(f"{Fore.RED}{Style.BRIGHT}...ERROR en (LibDBManager2.py --> SetCursor(db))... cursor no seteado para {db.database}{Style.RESET_ALL}")
+        print(f"{Fore.RED}{Style.BRIGHT}...ERROR en (pruebaManager.py --> SetCursor(db))... cursor no seteado para {db.database}{Style.RESET_ALL}")
     else :
         # en caso de no haber error, se devuelve un cursor
         print(f"{Fore.GREEN}{Style.BRIGHT}...CURSOR OK para la base {db.database}{Style.RESET_ALL}")
@@ -66,9 +66,46 @@ def CrearTablaEnBD(db , cursor , queryCrear):
     db.commit()
     return True
 
-def MostrarTablaBD(db, cursor, queryconsulta):
-    print(f"...mostrando tabla {db.database} ")
-    cursor.execute(queryconsulta)
+def MostrarTablaBD(db, cursor):
+    print(f"...Tabla/s de {db.database} : ")
+    cursor.execute("Show tables;")
     myresult = cursor.fetchall()
     for x in myresult:
         print(x)
+
+# verifica que la tabla exista dentro de la base de datos seleccionada
+# devuelve un cursor y True o False en caso de que la tabla exista
+""" def VerificarTabla(db , tabla):
+    # verifica la existencia de una tabla dentro de una base de datos
+    # que pasamos por parámteros
+    # necesito el resultado para poder verificar que sea el valor que estoy buscando
+    resultado = ""
+    # un cursor para ejecutar el script
+    cursor = ""
+    # si se verifica que está, se devolverá true
+    verifyOK = False
+    try :
+        print(f"{Fore.YELLOW}{Style.BRIGHT}...tratando de acceder a la tabla {tabla} de la base de datos {db.database}...{Style.RESET_ALL}")        
+        cursor = SetCursor(db)        
+        # compongo el nombre de la base de datos
+        dbName = "'" + db.database + "'"
+        # compongo el nombre de la tabla
+        tableName = "'" + tabla + "'"
+        # tengo el script para ejecutar contra la base de datos
+        script = "SHOW TABLES LIKE " + tableName        
+        # ejecuto el script
+        cursor.execute("Show tables;")
+        # ya tengo el resultado
+        resultado = cursor.fetchall()
+    except :
+        # si el resultado es vacío, es porque la tabla no existe
+        if str(resultado == ""):
+            print(f"{Fore.RED}{Style.BRIGHT}...ERROR en (pruebaManager.py --> VerificarTabla(db , tabla)) no se pudo acceder a la TABLA {tabla}...{Style.RESET_ALL}")
+            verifyOK = False
+            cursor = None
+    else :
+        # si el resultado trae el nombre de la tabla que estoy buscando, entonces es porque existe la tabla
+        if str(resultado[0]) == str("(" + tableName + ",)"):
+            print(f"{Fore.GREEN}{Style.BRIGHT}...todo OK con la TABLA {tabla}...{Style.RESET_ALL}")
+            verifyOK = True
+    return cursor , verifyOK """

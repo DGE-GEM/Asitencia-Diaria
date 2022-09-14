@@ -1,4 +1,5 @@
 from multiprocessing import connection
+from pickle import NONE
 
 import pruebaConexion
 import pruebaManager
@@ -20,7 +21,7 @@ try :
 except :    
     print(f"{Fore.RED}{Style.BRIGHT}...ERROR en prueba de verificación de prueba.py ...{Style.RESET_ALL}")
 
-
+#BORRAR TABLA de DBLOCAL
 try:
     #eliminar tabla de base dblocal 
     print('BORRANDO TABLA DE dblocal')
@@ -29,17 +30,30 @@ try:
 except:
     print(f"{Fore.RED}{Style.BRIGHT}...ERROR en eliminacion de tabla ...{Style.RESET_ALL}")
 
-try:
+#CREAR TABLA de DBLOCAL
+""" try:
     #crear tabla en base dblocal
     print('CREANDO TABLA EN dblocal')
     pruebaManager.EjecutarScript(pruebaConexion.dbLocal , cursorDBEjemplo , pruebaScripts.crear_TABLA_MATRICULA_NOMINAL)
     print('CREADA')
 except:
-    print(f"{Fore.RED}{Style.BRIGHT}...ERROR en CREACÍON de tabla ...{Style.RESET_ALL}")
+    print(f"{Fore.RED}{Style.BRIGHT}...ERROR en CREACÍON de tabla ...{Style.RESET_ALL}") """
 
+#VERIFICAR TABLA de DBLOCAL (no esta funcionando)
+""" try:
+    #Verificar tablas
+    print('...Verificando si existe tabla...')
+    pruebaManager.VerificarTabla(pruebaConexion.dbLocal, cursorDBEjemplo)
+except:
+    print(f"{Fore.RED}{Style.BRIGHT}...NO HAY TABLAS para VERIFICAR ...{Style.RESET_ALL}")  """
+
+#MOSTRAR TABLAS de DBLOCAL
 try:
     #mostrar tablas de dblocal
-    print('MOSTRANDO TABLAS DE dblocal')
+    print('MOSTRANDO TABLA/S DE dblocal')
     pruebaManager.MostrarTablaBD(pruebaConexion.dbLocal, cursorDBEjemplo)
+
 except:
-     print(f"{Fore.RED}{Style.BRIGHT}...ERROR en MOSTRAR tablas ...{Style.RESET_ALL}")
+     print(f"{Fore.RED}{Style.BRIGHT}...NO HAY TABLAS ...{Style.RESET_ALL}")
+
+

@@ -30,3 +30,14 @@ crear_TABLA_MATRICULA_NOMINAL = """CREATE TABLE IF NOT EXISTS TABLA_MATRICULA_NO
                                 latitud FLOAT(45),
                                 longitud FLOAT(45))"""
 
+
+
+def crearTablaN(tablaNombre):
+    var = 'tablaNombre'
+    CrearTablaNueva = """CREATE TABLE """ + var + """
+                    (
+                    id INT AUTO_INCREMENT PRIMARY KEY
+                    
+                    )"""
+
+    print(CrearTablaNueva)
